@@ -1,0 +1,41 @@
+Runtime Evaluation (Worst-Case for reading file + creating Course objects)
+
+Assume n lines/courses.
+
+BST total worst-case: O(n^2)
+Step                                             Cost    Times     Total
+Read line                                        1       n         n
+Split line / create Course object                1       n         n
+Insert course into data structure                n       n         n^2 
+Store courseNumber in allCourseNumbers           1       n         n
+Validate prerequisites (search inside loop)      n       n         n^2
+
+Vector total worst-case: O(n^2)
+Step                                             Cost    Times     Total
+Read line                                        1       n         n
+Split line / create Course object                1       n         n
+Insert course into data structure                1       n         n 
+Store courseNumber in allCourseNumbers           1       n         n
+Validate prerequisites (search inside loop)      n       n         n^2
+
+Hash Table total worst-case: O(n^2)
+
+Step                                             Cost    Times     Total
+Read line                                        1       n         n
+Split line / create Course object                1       n         n
+Insert course into data structure                n       n         n^2 
+Store courseNumber in allCourseNumbers           1       n         n
+Validate prerequisites (search inside loop)      n       n         n^2
+
+
+
+
+
+Worst case, hash collisions or a skewed BST can make insert/search O(n)
+Advantages
+The advantages of a vector are that it is simple to implement and understand because items are stored in one continuous block of memory. When the file is loading, it is quick to add new courses because the vector adds them to the end and everything stays in one place. The advantages of a hash table are that it can quickly look up a course for the “Print Course’’ option using the course number. It also has fast inserts while loading because the course number is already available, and the hash table uses it as the key when storing each course. The advantages of a binary search tree (BST) are that it can print the course list in alphanumeric order using an in-order traversal. It can also find a single course by course number correctly when the tree is balanced.
+Disadvantages
+The disadvantage of a vector is that finding one course by course number can be slow because it usually searches one by one through the list. A hash table is not ordered, so printing the course list in alphanumeric order requires extra steps like sorting the keys or moving the data to a list. The disadvantage of a BST is that if the tree becomes unbalanced, insert and search can degrade to O(n) in the worst case.
+I recommend the BST because it prints courses in alphanumeric order (in-order
+traversal) and still finds a single course by course number. Hash tables are
+fast but not sorted, and vectors are simple but slower to search.
